@@ -1,0 +1,257 @@
+>> mpiexec -n 16 SU2_CFD .\Transient_NEMO.cfg
+
+-------------------------------------------------------------------------
+|    ___ _   _ ___                                                      |
+|   / __| | | |_  )   Release 7.3.0 "Blackbird"                         |
+|   \__ \ |_| |/ /                                                      |
+|   |___/\___//___|   Suite (Computational Fluid Dynamics Code)         |
+|                                                                       |
+-------------------------------------------------------------------------
+| SU2 Project Website: https://su2code.github.io                        |
+|                                                                       |
+| The SU2 Project is maintained by the SU2 Foundation                   |
+| (http://su2foundation.org)                                            |
+-------------------------------------------------------------------------
+| Copyright 2012-2022, SU2 Contributors                                 |
+|                                                                       |
+| SU2 is free software; you can redistribute it and/or                  |
+| modify it under the terms of the GNU Lesser General Public            |
+| License as published by the Free Software Foundation; either          |
+| version 2.1 of the License, or (at your option) any later version.    |
+|                                                                       |
+| SU2 is distributed in the hope that it will be useful,                |
+| but WITHOUT ANY WARRANTY; without even the implied warranty of        |
+| MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU      |
+| Lesser General Public License for more details.                       |
+|                                                                       |
+| You should have received a copy of the GNU Lesser General Public      |
+| License along with SU2. If not, see <http://www.gnu.org/licenses/>.   |
+-------------------------------------------------------------------------
+
+Parsing config file for zone 0
+
+----------------- Physical Case Definition ( Zone 0 ) -------------------
+Compressible two-temperature thermochemical non-equilibrium Navier-Stokes equations.
+Mach number: 9.13.
+Angle of attack (AoA): 0 deg, and angle of sideslip (AoS): 0 deg.
+Reynolds number: 1.3162e+006. Reference length 0.1319.
+No restart solution, use the values at infinity (freestream).
+Dimensional simulation.
+The reference area is 0.00993362 m^2.
+The semi-span will be computed using the max y(3D) value.
+The reference length is 0.1319 m.
+Reference origin for moment evaluation is (0, 0, 0).
+Surface(s) where the force coefficients are evaluated: Body.
+
+Surface(s) plotted in the output file: Body.
+Input mesh file name: Trans_CONEout.su2
+
+--------------- Space Numerical Integration ( Zone 0 ) ------------------
+AUSM solver for the flow inviscid terms.
+Second order integration in space, with slope limiter.
+Venkatakrishnan slope-limiting method, with constant: 0.05.
+The reference element size is: 1.
+Average of gradients with correction (viscous flow terms).
+Gradient for upwind reconstruction: inverse-distance weighted Least-Squares.
+Gradient for viscous and source terms: inverse-distance weighted Least-Squares.
+
+--------------- Time Numerical Integration  ( Zone 0 ) ------------------
+Local time stepping (steady state simulation).
+Euler implicit method for the flow equations.
+BCGSTAB is used for solving the linear system.
+Using a ILU(0) preconditioning.
+Convergence criteria of the linear solver: 1e-006.
+Max number of linear iterations: 5.
+No CFL adaptation.
+Courant-Friedrichs-Lewy number:        1
+
+------------------ Convergence Criteria  ( Zone 0 ) ---------------------
+Maximum number of solver subiterations: 1000.
+Begin convergence monitoring at iteration 10.
+Residual minimum value: 1e-8.
+Cauchy series min. value: 1e-006.
+Number of Cauchy elements: 100.
+Begin windowed time average at iteration 0.
+
+-------------------- Output Information ( Zone 0 ) ----------------------
+Writing solution files every 100 iterations.
+Writing the convergence history file every 1 inner iterations.
+Writing the screen convergence history every 1 inner iterations.
+The tabular file format is CSV (.csv).
+Convergence history file name: convergence.
+Forces breakdown file name: forces_breakdown.dat.
+Surface file name: soln_surface.
+Volume file name: soln_volume.
+Restart file name: restart_flow.dat.
+
+------------- Config File Boundary Information ( Zone 0 ) ---------------
++-----------------------------------------------------------------------+
+|                        Marker Type|                        Marker Name|
++-----------------------------------------------------------------------+
+|                          Far-field|                           Farfield|
+|                                   |                            42.3077|
+|                                   |                           267.9565|
++-----------------------------------------------------------------------+
+|                     Symmetry plane|                           Symmetry|
++-----------------------------------------------------------------------+
+|                    Outlet boundary|                             Outlet|
++-----------------------------------------------------------------------+
+|                    Isothermal wall|                               Body|
++-----------------------------------------------------------------------+
+
+-------------------- Output Preprocessing ( Zone 0 ) --------------------
+
+WARNING: SURFACE_PRESSURE_DROP can only be computed for 2 surfaces (outlet, inlet)
+
+Screen output fields: INNER_ITER, RMS_DENSITY_0, RMS_DENSITY_1, RMS_DENSITY_2, RMS_DENSITY_3, RMS_DENSITY_4, RMS_ENERGY, RMS_ENERGY_VE, LIFT, DRAG, TOTAL_HEATFLUX
+History output group(s): ITER, RMS_RES
+Ignoring Convergence Field(s): RMS_DENSITY
+Warning: No (valid) fields chosen for convergence monitoring. Convergence monitoring inactive.
+Warning: No (valid) fields chosen for time convergence monitoring. Time convergence monitoring inactive.
+Volume output fields: COORDINATES, SOLUTION, PRIMITIVE, AUXILIARY
+
+------------------- Geometry Preprocessing ( Zone 0 ) -------------------
+Two dimensional problem.
+80181 grid points before partitioning.
+79500 volume elements before partitioning.
+4 surface markers.
+530 boundary elements in index 0 (Marker = Body).
+530 boundary elements in index 1 (Marker = Farfield).
+150 boundary elements in index 2 (Marker = Outlet).
+150 boundary elements in index 3 (Marker = Symmetry).
+Executing the partitioning functions.
+Building the graph adjacency structure.
+Calling ParMETIS... graph partitioning complete (2105 edge cuts).
+Distributing ParMETIS coloring.
+Rebalancing vertices.
+Rebalancing volume element connectivity.
+Rebalancing markers and surface elements.
+84419 vertices including ghost points.
+81604 interior elements including halo cells.
+81604 quadrilaterals.
+Establishing MPI communication patterns.
+Setting point connectivity.
+Renumbering points (Reverse Cuthill McKee Ordering).
+Recomputing point connectivity.
+Setting element connectivity.
+Checking the numerical grid orientation.
+All volume elements are correctly orientend.
+There has been a re-orientation of 1368 LINE surface elements.
+Identifying edges and vertices.
+Setting the control volume structure.
+Area of the computational grid: 0.00424059.
+Searching for the closest normal neighbors to the surfaces.
+Storing a mapping from global to local point index.
+Compute the surface curvature.
+Max K: 8476.6. Mean K: 40.5399. Standard deviation K: 481.724.
+Checking for periodicity.
+Computing mesh quality statistics for the dual control volumes.
++--------------------------------------------------------------+
+|           Mesh Quality Metric|        Minimum|        Maximum|
++--------------------------------------------------------------+
+|    Orthogonality Angle (deg.)|        60.1411|         89.988|
+|     CV Face Area Aspect Ratio|        1.00114|        31.2271|
+|           CV Sub-Volume Ratio|        1.00069|        2.18784|
++--------------------------------------------------------------+
+Finding max control volume width.
+Communicating number of neighbors.
+Wetted area = 0.0274797 m^2.
+Area projection in the x-plane = 0.0562315 m, y-plane = 0 m.
+Max. coordinate in the x-direction = 0.1319 m, y-direction = 0.0562315 m.
+Min. coordinate in the x-direction = 0 m, y-direction = 0 m.
+Checking if Euler & Symmetry markers are straight/plane:
+Boundary marker Symmetry is a single straight.
+Computing wall distances.
+
+-------------------- Solver Preprocessing ( Zone 0 ) --------------------
+Viscous flow: Computing density using the equation of state for multi-species and multi-temperatures
+based on the free-stream temperatures and pressure.
+Force coefficients computed using free-stream values.
+
+-- Models:
++-----------------------------------------------------------------------------+
+|                  Mixture|              Fluid Model|          Transport Model|
++-----------------------------------------------------------------------------+
+|                    AIR-5|                SU2 NonEq|    Wilke-Blottner-Eucken|
++-----------------------------------------------------------------------------+
+-- Fluid properties:
++------------------------------------------------------------------------------+
+|                  Name|    Dim. value|    Ref. value|      Unit|Non-dim. value|
++------------------------------------------------------------------------------+
+|          Gas Constant|        574.56|             1|  N.m/kg.K|        574.56|
+|      Spec. Heat Ratio|             -|             -|         -|       1.66667|
++------------------------------------------------------------------------------+
++------------------------------------------------------------------------------+
+-- Initial and free-stream conditions:
++------------------------------------------------------------------------------+
+|                  Name|    Dim. value|    Ref. value|      Unit|Non-dim. value|
++------------------------------------------------------------------------------+
+|       Static Pressure|       267.957|             1|        Pa|       267.957|
+|               Density|     0.0109884|             1|    kg/m^3|     0.0109884|
+|       T-R Temperature|       42.3077|             1|         K|       42.3077|
+|       V-E Temperature|       42.3077|             1|         K|       42.3077|
+|          Total Energy|    3.109e+007|             1|   m^2/s^2|    3.109e+007|
+|            Velocity-X|        1840.6|             1|       m/s|        1840.6|
+|            Velocity-Y|             0|             1|       m/s|             0|
+|    Velocity Magnitude|        1840.6|             1|       m/s|        1840.6|
++------------------------------------------------------------------------------+
+|             Viscosity|  4.91964e-006|             1|   N.s/m^2|  4.91964e-006|
++------------------------------------------------------------------------------+
+|           Mach Number|             -|             -|         -|          9.13|
+|       Reynolds Number|             -|             -|         -|        542259|
++------------------------------------------------------------------------------+
+Initialize Jacobian structure (Navier-Stokes). MG level: 0.
+Warning: temperatures did not converge, error= 1.15427
+mpiexec aborting job...
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+
+------------------- Numerics Preprocessing ( Zone 0 ) -------------------
+
+----------------- Integration Preprocessing ( Zone 0 ) ------------------
+
+------------------- Iteration Preprocessing ( Zone 0 ) ------------------
+Euler/Navier-Stokes/RANS fluid iteration.
+
+------------------------------ Begin Solver -----------------------------
+
+Simulation Run using the Single-zone Driver
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15427
+Warning: temperatures did not converge, error= 1.15
