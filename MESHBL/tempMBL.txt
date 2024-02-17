@@ -1,0 +1,5 @@
+/home/nachiketh/MESHBL/constant/polyMesh
+/home/nachiketh/MESHBL
+IB120_mppnemo.su2
+2D
+Z
